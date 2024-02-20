@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.prodonik.posting.models.User;
 
-public interface UseerRepository extends JpaRepository <User, UUID> {
+public interface UserRepository extends JpaRepository <User, UUID> {
     Optional<User> findByUsername (String username);
 }

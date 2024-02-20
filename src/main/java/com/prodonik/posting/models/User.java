@@ -18,27 +18,43 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements UserDetails {
-    
+
     @Id
     @GeneratedValue(generator = "UUID")
-    private final UUID id;
+    private UUID id;
     @NonNull private String firstname;
     @NonNull private String lastname;
-    @Column(name = "username", unique = true, length = 64)
+    @Column(name = "usernames", unique = true, length = 64)
     private String username;
     private LocalDateTime birthDate;
     @Transient
     private int age;
-    @Column(name = "username", length = 64)
+    @Column(name = "passwords", length = 64)
     private String password;
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "roles", length = 10)
     private Role role;
+
+    public User (String firstname, String lastname, String username,
+                LocalDateTime birthDateTime, String password, Role role) {
+            this.setFirstname(firstname);
+            this.setLastname(lastname);
+            this.setUsername(username);
+            this.setBirthDate(birthDateTime);
+            this.setPassword(password);
+            this.setRole(role);
+            age = birthDate.getYear() - LocalDateTime.now().getYear();
+        }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
