@@ -41,12 +41,12 @@ public class JwtService {
     }
 
 
-    private boolean isTokenExpired(String token) {
+    private boolean isTokenExpired (String token) {
         return this.extractExpiration(token).before(new Date());
     }
 
 
-    private Date extractExpiration(String token) {
+    private Date extractExpiration (String token) {
         return this.extractClaims(token, Claims::getExpiration);
     }
 
@@ -80,6 +80,5 @@ public class JwtService {
                     .decode(secretKey)
                 );
     }
-
 
 }
