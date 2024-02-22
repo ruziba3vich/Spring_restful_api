@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
+// @RequestMapping("/api/")
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
