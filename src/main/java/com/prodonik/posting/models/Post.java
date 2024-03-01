@@ -23,7 +23,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "owner_id", nullable = false)
-    private User owner;
+    private User users;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -37,8 +37,8 @@ public class Post {
     @Column(name = "image_path")
     private String pathToImage;
 
-    public Post (User owner, String title, String content) throws IOException {
-        this.setOwner(owner);
+    public Post (User users, String title, String content) throws IOException {
+        this.setUsers(users);
         this.setTitle(title);
         this.setContent(content);
         this.createdAt = LocalDateTime.now();

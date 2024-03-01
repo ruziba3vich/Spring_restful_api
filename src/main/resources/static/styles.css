@@ -1,0 +1,48 @@
+.phone {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: #333;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .screen {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  .chat {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .user {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  /* Animation */
+  @keyframes chatAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(-200%);
+    }
+  }
+  
+  .chat {
+    animation: chatAnimation 6s infinite;
+  }
+  

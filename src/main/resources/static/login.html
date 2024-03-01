@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>propost - Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style_login.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card login-frame">
+            <div class="card-body">
+                <h2 class="card-title text-center">Login</h2>
+                <form id="loginForm" action="/login" method="post"> <!-- Updated form action -->
+                    <div class="form-group">
+                        <label for="loginEmailUsername">Email or Username</label>
+                        <input type="text" class="form-control" id="loginEmailUsername" name="emailOrUsername" placeholder="Enter email or username"> <!-- Updated input id and name -->
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" name="password" placeholder="Password"> <!-- Updated input id and name -->
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary login-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p>Don't have an account yet? <a href="register.html" id="registerLink">Register</a></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="login.js"></script> <!-- Include the JavaScript file -->
+</body>
+</html>

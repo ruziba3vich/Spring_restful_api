@@ -16,6 +16,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
@@ -45,8 +46,15 @@ public class User implements UserDetails {
     @Column(name = "roles", length = 10)
     private Role role;
 
+    @OneToMany(mappedBy = "user")
+    List<Token> tokens;
+
+    @OneToMany(mappedBy = "users")
+    List<Post> posts;
+
     public User (String firstname, String lastname, String username,
-                LocalDateTime birthDateTime, String password, Role role) {
+                LocalDateTime birthDateTime, String password, Role role,
+                List<Token> tokens, List<Post> posts) {
             this.setFirstname(firstname);
             this.setLastname(lastname);
             this.setUsername(username);
@@ -54,6 +62,8 @@ public class User implements UserDetails {
             this.setPassword(password);
             this.setRole(role);
             age = birthDate.getYear() - LocalDateTime.now().getYear();
+            this.setTokens(tokens);
+            this.setPosts(posts);
         }
 
     @Override

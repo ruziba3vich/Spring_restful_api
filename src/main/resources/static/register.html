@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>propost - Registration</title>
+    <link rel="stylesheet" href="style_register.css">
+    <script src="code/register.js"></script>
+</head>
+<body>
+    <div class="outer-container text-center">
+        <div class="inner-container text-center">
+            <h1>User Registration</h1>
+            <form id="registrationForm" action="/register" method="post">
+                <div class="form-group">
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">Date of Birth:</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        <div class="text-center mt-3">
+            <p style="text-align: center;">Already have an account? <a href="login.html">Login</a></p> <!-- Link to the login page -->
+        </div>
+    </div>
+</body>
+</html>

@@ -5,10 +5,12 @@ import java.util.function.Function;
 
 import javax.crypto.SecretKey;
 
+import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.prodonik.posting.models.User;
+import com.prodonik.posting.repositories.UserRepository;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -19,7 +21,10 @@ import io.jsonwebtoken.security.Keys;
 public class JwtService {
     
     private final String secretKey = "1cc84510bee3ea62b2effaf13126398659e12e4ee7ed72cfc76fd914a141d5ac";
-    private final int days = 1;
+    private final int days = 10;
+    private final UserRepository userRepository;
+
+    public JwtService (UserRepository userRepository) { this.userRepository = userRepository; }
 
     public <T> T extractClaims (String token, Function<Claims, T> resolver) {
         return resolver
@@ -28,6 +33,17 @@ public class JwtService {
                 );
     }
 
+
+    public User extractUser (String token) {
+        try {
+            String username = this.extractUsername(token);
+            return this.userRepository
+                        .findByUsername(username)
+                        .get(); 
+        } catch (Exception ex) {
+            throw new AuthenticationServiceException("Invalid token", ex);
+        }
+    }
 
     public String extractUsername (String token) {
         return this.extractClaims(token, Claims::getSubject);

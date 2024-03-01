@@ -1,5 +1,5 @@
 package com.prodonik.posting.services;
-
+    
 import com.prodonik.posting.models.Post;
 import com.prodonik.posting.models.User;
 import com.prodonik.posting.repositories.PostRepository;
@@ -48,5 +48,4 @@ public class PostingService implements IPostingService {
     public void updatePostTitle(UUID postId, String newTitle) {
         postRepository.updateTitle(postId, newTitle);
     }
-
 }

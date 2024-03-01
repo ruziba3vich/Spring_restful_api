@@ -1,0 +1,63 @@
+.login-frame {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.login-btn {
+    width: 100%;
+}
+
+.outer-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+
+.inner-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+button {
+    display: block;
+    width: 90%; /* Set the width of the button */
+    margin: 0 auto; /* Center the button horizontally */
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
